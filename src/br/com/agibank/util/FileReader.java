@@ -73,7 +73,7 @@ public class FileReader {
 		return clients;
 	}
 	
-	public List<Sale> getSalesFromFile(Path path) {
+	public List<Sale> getSalesFromFile(Path path, List<Seller> sellers) {
 		List<Sale> sales = new ArrayList<>();
 		
 		try(Stream<String> stream = Files.lines(path)){
@@ -83,7 +83,7 @@ public class FileReader {
 						
 						Sale sale = new Sale();
 						sale.setSaleId(values[1]);
-						sale.setSalesmanName(values[3]);
+						sale.setSeller(new Utils().getSellerByName(sellers, values[3]));
 						
 						List<Item> items = new ArrayList<>();
 						String list = values[2].substring(1, values[2].length() - 1);
