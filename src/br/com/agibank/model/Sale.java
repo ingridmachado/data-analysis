@@ -1,17 +1,20 @@
 package br.com.agibank.model;
 
+import java.util.List;
+
 public class Sale {
-	private String id;
 	private String saleId;
-	private Item[] items;
-	private String salesmanName;
+	private List<Item> items;
+	private Seller seller;
 	
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
+	public double getTotal() {
+		double total = 0.0;
+		
+		for (Item item : items) {
+			total += item.getPrice();
+		}
+		
+		return total;
 	}
 	
 	public String getSaleId() {
@@ -22,19 +25,19 @@ public class Sale {
 		this.saleId = saleId;
 	}
 	
-	public Item[] getItems() {
+	public List<Item> getItems() {
 		return items;
 	}
 	
-	public void setItems(Item[] items) {
+	public void setItems(List<Item> items) {
 		this.items = items;
 	}
 	
-	public String getSalesmanName() {
-		return salesmanName;
+	public Seller getSeller() {
+		return seller;
 	}
-	
-	public void setSalesmanName(String salesmanName) {
-		this.salesmanName = salesmanName;
+
+	public void setSeller(Seller seller) {
+		this.seller = seller;
 	}
 }

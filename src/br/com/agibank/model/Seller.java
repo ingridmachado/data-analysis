@@ -1,18 +1,9 @@
 package br.com.agibank.model;
 
 public class Seller {
-	private String id;
 	private String cpf;
 	private String name;
-	private String salary;
-	
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
+	private double salary;
 	
 	public String getCpf() {
 		return cpf;
@@ -30,11 +21,11 @@ public class Seller {
 		this.name = name;
 	}
 	
-	public String getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 	
-	public void setSalary(String salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
 }
